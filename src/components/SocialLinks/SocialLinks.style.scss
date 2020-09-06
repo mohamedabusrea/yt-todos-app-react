@@ -1,0 +1,9 @@
+.SocialLinks {
+  display: flex;
+  gap: calc(var(--default-padding) / 2);
+  padding: var(--default-padding);
+
+  &__img {
+    width: 24px;
+  }
+}

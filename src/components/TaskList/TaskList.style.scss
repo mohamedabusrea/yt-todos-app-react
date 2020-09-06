@@ -1,0 +1,91 @@
+.TaskList {
+  list-style: none;
+  margin-top: calc(var(--default-padding) * 2);
+  flex: 1;
+
+  &__taskContent {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--default-padding);
+    height: 5.4rem;
+
+    &:hover {
+      background-color: #ececec;
+
+      .TaskList__deleteIcon {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &--isActive {
+      text-decoration: line-through;
+      color: var(--color-gray);
+
+      .TaskList__checkbox {
+        background-color: var(--color-blue);
+      }
+
+      .TaskList__checkboxImage {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__valueContent {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-size: var(--font-size-large);
+  }
+
+  &__value {
+    flex: 1;
+    cursor: pointer;
+    height: 100%;
+    padding: var(--default-padding);
+    padding-right: calc(var(--default-padding) / 2);
+    transition: all var(--timing-animation);
+  }
+
+  &__valueInput {
+    padding: var(--default-padding);
+    padding-right: calc(var(--default-padding) / 2);
+    font-family: var(--font-family-ar);
+    font-size: var(--font-size-large);
+    border: none;
+    width: 100%;
+    background-color: var(--color-white);
+    height: 100%;
+  }
+
+  &__checkbox {
+    width: 2.2rem;
+    height: 2.2rem;
+    background-color: white;
+    box-shadow: 0 0 .3rem rgba(black, .1);
+    border-radius: .2rem;
+    padding: .2rem;
+    margin-left: calc(var(--default-padding) / 2);
+    cursor: pointer;
+    transition: all var(--timing-animation);
+  }
+
+  &__checkboxImage {
+    opacity: 0;
+    visibility: hidden;
+    user-select: none;
+  }
+
+  &__deleteIcon {
+    position: absolute;
+    width: 2.8rem;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--timing-animation);
+    cursor: pointer;
+  }
+}

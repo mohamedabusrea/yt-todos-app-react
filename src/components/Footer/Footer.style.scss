@@ -1,0 +1,12 @@
+.Footer {
+  display: flex;
+  font-size: var(--font-size-small);
+  padding-top: calc(var(--default-padding) / 2);
+  color: var(--color-gray);
+  justify-content: center;
+
+  &__link {
+    color: var(--color-blue);
+    padding-right: .5rem;
+  }
+}

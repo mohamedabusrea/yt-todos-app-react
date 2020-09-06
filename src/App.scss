@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap');
+
+:root {
+  --font-size-small: 1.4rem;
+  --font-size-regular: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-xLarge: 4.2rem;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --default-padding: 1.6rem;
+  --font-family-ar: 'Almarai', sans-serif;
+  --timing-animation: .2s;
+  --color-black: #3e3e3e;
+  --color-red: #ff2d2d;
+  --color-blue: #0E93E5;
+  --color-white: white;
+  --color-gray: #c1c1c1;
+}
+
+* {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Almarai', sans-serif;
+  font-size: var(--font-size-regular);
+  background-color: #f1f3f5;
+  color: var(--color-black);
+  min-height: 100vh;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 70rem;
+    width: 100%;
+    flex: 1;
+    padding: var(--default-padding);
+  }
+}
