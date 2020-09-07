@@ -10,7 +10,8 @@
     height: 5.4rem;
 
     &:hover {
-      background-color: #ececec;
+      //background-color: #ececec;
+      background-color: var(--color-task-hover);
 
       .TaskList__deleteIcon {
         opacity: 1;

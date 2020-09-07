@@ -5,6 +5,7 @@ import basketIcon from '../../assets/icon-basket.svg';
 import EmptyList from "../EmptyList/EmptyList.view";
 
 import './TaskList.style.scss';
+import {saveToDB} from "../../helpers";
 
 const TaskList = ({tasks, setTasks}) => {
   const [editModeID, setEditModeID] = useState(-1);
@@ -13,7 +14,7 @@ const TaskList = ({tasks, setTasks}) => {
     const taskValue = event.target.value;
 
     setTasks(prevState => {
-      return prevState.map(task => {
+      const newData = prevState.map(task => {
         if (task.id === taskID) {
           return {...task, value: taskValue}
         }
@@ -21,6 +22,9 @@ const TaskList = ({tasks, setTasks}) => {
           return task;
         }
       });
+
+      saveToDB('tasks', newData);
+      return newData;
     });
   };
 
@@ -34,9 +38,12 @@ const TaskList = ({tasks, setTasks}) => {
     }
 
     setTasks(prevState => {
-      return prevState.filter(task => {
+      const newData = prevState.filter(task => {
         return task.id !== taskID
       });
+
+      saveToDB('tasks', newData);
+      return newData;
     });
   };
 
@@ -54,7 +61,7 @@ const TaskList = ({tasks, setTasks}) => {
 
   const onCheckTask = (taskID) => {
     setTasks(prevState => {
-      return prevState.map(task => {
+      const newData = prevState.map(task => {
         if (task.id === taskID) {
           return {...task, done: !task.done}
         }
@@ -62,6 +69,9 @@ const TaskList = ({tasks, setTasks}) => {
           return task;
         }
       });
+
+      saveToDB('tasks', newData);
+      return newData;
     });
   };
 
@@ -73,7 +83,8 @@ const TaskList = ({tasks, setTasks}) => {
     <ul className='TaskList'>
       {tasks.length ?
         tasks.map(task =>
-          <li className={generateClasses(task.done)}>
+          <li className={generateClasses(task.done)}
+              key={task.id}>
             {task.done}
             <div className='TaskList__checkbox'
                  onClick={() => onCheckTask(task.id)}>
@@ -107,6 +118,7 @@ const TaskList = ({tasks, setTasks}) => {
 
 TaskList.propTypes = {
   tasks: PropTypes.arrayOf(PropTypes.object),
+  setTasks: PropTypes.func,
 }
 
 export default TaskList;

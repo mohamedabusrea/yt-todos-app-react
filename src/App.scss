@@ -16,17 +16,14 @@
   --color-blue: #0E93E5;
   --color-white: white;
   --color-gray: #c1c1c1;
-}
-
-* {
-  outline: none;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html{
-  font-size: 62%;
+  --color-light-gray: #f1f3f5;
+  --color-text: var(--color-black);
+  --color-bg: var(--color-light-gray);
+  --color-input: var(--color-white);
+  --color-task-hover: #ececec;
+  --color-bg-dark-theme: #222222;
+  --color-input-dark-theme: #333333;
+  --color-text-dark-theme: var(--color-light-gray);
 }
 
 .App {
@@ -34,9 +31,17 @@ html{
   flex-direction: column;
   font-family: 'Almarai', sans-serif;
   font-size: var(--font-size-regular);
-  background-color: #f1f3f5;
-  color: var(--color-black);
+  background: var(--color-bg);
+  color: var(--color-text);
   min-height: 100vh;
+  transition: background var(--timing-animation);
+
+  &--isDark {
+    --color-bg: var(--color-bg-dark-theme);
+    --color-input: var(--color-input-dark-theme);
+    --color-text: var(--color-text-dark-theme);
+    --color-task-hover: var(--color-input-dark-theme);
+  }
 
   &__wrapper {
     display: flex;

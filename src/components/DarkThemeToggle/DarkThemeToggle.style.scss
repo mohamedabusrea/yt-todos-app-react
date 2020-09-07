@@ -1,0 +1,13 @@
+.DarkThemeToggle {
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-small);
+  color: var(--color-gray);
+  cursor: pointer;
+
+  &--isActive {
+    color: var(--color-blue);
+    text-shadow: 0 0 4px var(--color-blue);
+  }
+}

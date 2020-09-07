@@ -1,19 +1,21 @@
 .TaskSearchBar {
   display: flex;
-  background: var(--color-white);
   box-shadow: 0 .6rem .8rem rgba(85, 102, 119, .03), 0 .1rem .1rem rgba(85, 102, 119, .4);
   height: 6.4rem;
   cursor: text;
+  border-radius: .3rem;
+  overflow: hidden;
 
   &__input {
     padding: var(--default-padding);
-    background: 0 0;
+    background-color: var(--color-input);
     border: 0;
     flex: 1 1 auto;
-    color: #111;
+    color: var(--color-text);
     min-width: 4.8rem;
     font-family: var(--font-family-ar);
     font-size: var(--font-size-large);
+    transition: background-color var(--timing-animation);
   }
 
   ::placeholder {

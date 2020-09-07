@@ -1,37 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Logo from "./components/Logo/Logo.view";
-import TaskSearchBar from "./components/TaskSearchBar/TaskSearchBar.view";
-import TaskList from "./components/TaskList/TaskList.view";
-import SocialLinks from "./components/SocialLinks/SocialLinks.view";
+import Header from "./components/Header/Header.view";
 import Footer from "./components/Footer/Footer.view";
+import {fetchData} from "./helpers";
 
 import './App.scss';
+import Tasks from "./components/Tasks/Tasks.view";
 
 function App() {
-  const fetchData = () => {
-    const data = localStorage.getItem('tasks');
+  const [darkModeFlag, setDarkModeFlag] = useState(fetchData('darkModeFlag'));
 
-    return data ? JSON.parse(data) : [];
-  }
-
-  const [tasks, setTasks] = useState(fetchData());
-
-  useEffect(() => {
-    saveToDB();
-  }, [tasks]);
-
-  const saveToDB = () => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
+  const getAppClasses = `App ${darkModeFlag ? 'App--isDark' : ''}`;
 
   return (
-    <div className="App">
-      <SocialLinks/>
+    <div className={getAppClasses}>
+      <Header darkModeFlag={darkModeFlag}
+              setDarkModeFlag={setDarkModeFlag}/>
       <div className="App__wrapper">
         <Logo/>
-        <TaskSearchBar setTasks={setTasks}/>
-        <TaskList tasks={tasks}
-                  setTasks={setTasks}/>
+        <Tasks/>
         <Footer/>
       </div>
     </div>
@@ -40,6 +27,10 @@ function App() {
 
 export default App;
 
-//todo finish the basic task
-// add language ar/en
-// add light/dark theme
+/*todo finish the basic task
+ * show/hide completed tasks
+ * update readme file
+ * update video's link in footer
+ * add language ar/en
+ *add light/dark theme
+ */

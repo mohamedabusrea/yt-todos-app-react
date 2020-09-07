@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types'
 
 import './TaskSearchBar.style.scss'
+import {saveToDB} from "../../helpers";
 
 const TaskSearchBar = ({setTasks}) => {
   const [inputValue, setInputValue] = useState('');
@@ -15,13 +17,16 @@ const TaskSearchBar = ({setTasks}) => {
       const id = (new Date()).getTime();
 
       setTasks(prevState => {
-        return [
+        const newData = [
           ...prevState,
           {
             id,
             value: inputValue,
           }
-        ]
+        ];
+
+        saveToDB('tasks', newData);
+        return newData;
       });
       setInputValue('');
     }
@@ -46,6 +51,10 @@ const TaskSearchBar = ({setTasks}) => {
         إضافة
       </button>
     </div>);
+};
+
+TaskSearchBar.propTypes = {
+  setTasks: PropTypes.func,
 };
 
 export default TaskSearchBar;
