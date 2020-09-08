@@ -2,6 +2,7 @@ import React from 'react';
 import facebook from "../../assets/icon-facebook.svg";
 import twitter from "../../assets/twitter.svg";
 import youtube from "../../assets/youtube.svg";
+import github from "../../assets/icon-github.svg";
 
 import './SocialLinks.style.scss';
 
@@ -21,6 +22,11 @@ const SocialLinks = () => {
       url: 'https://www.youtube.com/mohamedabusrea',
       src: youtube,
       alt: 'youtube icon',
+    },
+    {
+      url: 'https://www.github.com/mohamedabusrea',
+      src: github,
+      alt: 'github icon',
     },
   ]
   return (
