@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import checkmarkIcon from '../../assets/icon-checkmark.svg';
 import basketIcon from '../../assets/icon-basket.svg';
 import EmptyList from "../EmptyList/EmptyList.view";
+import {fetchData, saveToDB} from "../../helpers";
 
 import './TaskList.style.scss';
-import {saveToDB} from "../../helpers";
 
 const TaskList = ({tasks, setTasks}) => {
   const [editModeID, setEditModeID] = useState(-1);
+
+  const [hideCompletedTasksFlag, setHideCompletedTasksFlag] = useState(fetchData('hideCompletedTasksFlag') || false);
 
   const onUpdateTask = (event, taskID) => {
     const taskValue = event.target.value;
@@ -75,44 +77,60 @@ const TaskList = ({tasks, setTasks}) => {
     });
   };
 
-  const shouldEditTask = (taskID) => taskID === editModeID;
+  const shouldEditTask = (taskID) => {
+    return taskID === editModeID;
+  };
 
-  const generateClasses = done => `TaskList__taskContent ${done ? 'TaskList__taskContent--isActive' : ''}`;
+  const toggleCompletedTasksFlag = () => {
+    const result = !hideCompletedTasksFlag;
+
+    setHideCompletedTasksFlag(result);
+    saveToDB('hideCompletedTasksFlag', result);
+  }
+
+  const generateTaskClasses = done => `TaskList__taskContent ${done ? 'TaskList__taskContent--isActive' : ''}`;
+
+  const generateLinkClasses = `TaskList__link ${hideCompletedTasksFlag ? 'TaskList__link--isActive' : ''}`;
 
   return (
-    <ul className='TaskList'>
-      {tasks.length ?
-        tasks.map(task =>
-          <li className={generateClasses(task.done)}
-              key={task.id}>
-            {task.done}
-            <div className='TaskList__checkbox'
-                 onClick={() => onCheckTask(task.id)}>
-              <img className='TaskList__checkboxImg' src={checkmarkIcon} alt="checkmark"/>
-            </div>
-            <div className='TaskList__valueContent'>
-              {shouldEditTask(task.id) ?
-                <input className='TaskList__valueInput'
-                       type="text"
-                       value={task.value}
-                       onChange={event => onUpdateTask(event, task.id)}
-                       autoFocus={true}
-                       onBlur={() => setEditModeID(-1)}
-                       onKeyDown={event => onKeyDown(event, task.id)}/> :
-                <p className='TaskList__value'
-                   onClick={() => setEditModeID(task.id)}>{
-                  task.value}
-                </p>
-              }
-              {!shouldEditTask(task.id) && <img src={basketIcon}
-                                                className='TaskList__deleteIcon'
-                                                alt="basket-icon"
-                                                onClick={() => onRemoveTask(task.id, true)}/>}
-            </div>
-          </li>)
-        :
-        <EmptyList/>}
-    </ul>
+    <div className='TaskList'>
+      <p className={generateLinkClasses}
+         onClick={toggleCompletedTasksFlag}>إخفاء المهام المكتملة</p>
+      <ul className='TaskList__list'>
+        {tasks.length ?
+          tasks.filter(task => !hideCompletedTasksFlag || !task.done)
+               .map(task =>
+                 <li className={generateTaskClasses(task.done)}
+                     key={task.id}>
+                   {task.done}
+                   <div className='TaskList__checkbox'
+                        onClick={() => onCheckTask(task.id)}>
+                     <img className='TaskList__checkboxImg' src={checkmarkIcon} alt="checkmark"/>
+                   </div>
+                   <div className='TaskList__valueContent'>
+                     {shouldEditTask(task.id) ?
+                       <input className='TaskList__valueInput'
+                              type="text"
+                              value={task.value}
+                              onChange={event => onUpdateTask(event, task.id)}
+                              autoFocus={true}
+                              onBlur={() => setEditModeID(-1)}
+                              onKeyDown={event => onKeyDown(event, task.id)}/> :
+                       <p className='TaskList__value'
+                          onClick={() => setEditModeID(task.id)}>{
+                         task.value}
+                       </p>
+                     }
+                     {!shouldEditTask(task.id) && <img src={basketIcon}
+                                                       className='TaskList__deleteIcon'
+                                                       alt="basket-icon"
+                                                       onClick={() => onRemoveTask(task.id, true)}/>}
+                   </div>
+                 </li>)
+          :
+          <EmptyList/>}
+      </ul>
+    </div>
   );
 }
 
@@ -122,7 +140,3 @@ TaskList.propTypes = {
 }
 
 export default TaskList;
-
-//edit data in input
-//PWA
-//Dark Theme

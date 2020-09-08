@@ -1,7 +1,21 @@
+@import "../../mixins";
+
 .TaskList {
-  list-style: none;
-  margin-top: calc(var(--default-padding) * 2);
-  flex: 1;
+
+  &__link {
+    @include linkStyle;
+    margin-top: var(--default-padding);
+
+    &--isActive{
+      @include activeLink;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin-top: calc(var(--default-padding) * 2);
+    flex: 1;
+  }
 
   &__taskContent {
     display: flex;

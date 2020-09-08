@@ -28,9 +28,9 @@ function App() {
 export default App;
 
 /*todo finish the basic task
- * show/hide completed tasks
+ * PWA
  * update readme file
  * update video's link in footer
- * add language ar/en
+ *show/hide completed tasks
  *add light/dark theme
  */

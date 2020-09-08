@@ -1,0 +1,12 @@
+@mixin linkStyle {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray);
+  cursor: pointer;
+  transition: all var(--timing-animation);
+}
+
+@mixin activeLink {
+  color: var(--color-blue);
+  text-shadow: 0 0 2px var(--color-blue);
+}
