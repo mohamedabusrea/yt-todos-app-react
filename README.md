@@ -4,7 +4,7 @@ Yes, it's another Todos App 😁. It's built with React.js as a part of a youtub
 
 ## Demo
 
-Check out the demo! - http://todosapplication.netlify.app/
+Check out the live website! - http://todosapplication.netlify.app/
 
 ## Technologies
 
