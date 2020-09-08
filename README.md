@@ -2,6 +2,11 @@
 
 Yes, it's another Todos App 😁. It's built with React.js as a part of a youtube video.
 
+<p float="left">
+  <img float="left" src="/public/screenshot-dark-mode.png"/>
+  <img float="left" src="/public/screenshot-light-mode.png"/>
+</p>
+
 ## Demo
 
 Check out the demo! - http://todosapplication.netlify.app/
