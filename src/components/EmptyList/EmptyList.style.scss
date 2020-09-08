@@ -3,7 +3,7 @@
   color: var(--color-gray);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-large);
-  margin-top: var(--default-padding);
+  margin: var(--default-padding) auto 0;
 
   &__img {
     height: 30rem;

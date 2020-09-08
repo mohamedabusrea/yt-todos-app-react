@@ -12,12 +12,14 @@
   }
 
   &__list {
+    display: flex;
     list-style: none;
     margin-top: calc(var(--default-padding) * 2);
     flex: 1;
   }
 
   &__taskContent {
+    flex: 1;
     display: flex;
     align-items: center;
     padding: 0 var(--default-padding);

@@ -94,8 +94,8 @@ const TaskList = ({tasks, setTasks}) => {
 
   return (
     <div className='TaskList'>
-      <p className={generateLinkClasses}
-         onClick={toggleCompletedTasksFlag}>إخفاء المهام المكتملة</p>
+      {!!tasks.length && <p className={generateLinkClasses}
+                          onClick={toggleCompletedTasksFlag}>إخفاء المهام المكتملة</p>}
       <ul className='TaskList__list'>
         {tasks.length ?
           tasks.filter(task => !hideCompletedTasksFlag || !task.done)
