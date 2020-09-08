@@ -1,29 +1,24 @@
 # Todos App
 
-Yes, it's another Todos App 😁. It's made with React for a youtube video.
-
-![desktop-view](https://user-images.githubusercontent.com/55945204/88342211-486da380-cd3f-11ea-9ad4-e1cd10894acd.png)
+Yes, it's another Todos App 😁. It's built with React.js as a part of a youtube video.
 
 ## Demo
 
-Check out the demo! - https://rest-countries-api-challenge.netlify.app/
+Check out the demo! - http://todosapplication.netlify.app/
 
 ## Technologies
 
-- React v16.13.1
+- React
 - React Hooks
 - Local Storage
-- react-transition-group
-- react-select
 
 ## Features
 
-Users are be able to:
-
-- View the optimal layout depending on their device's screen size
-- View particular countrie's information such as population, region, capital etc.
+- View the optimal layout depending on your device's screen size
+- Add tasks to your list and track them
+- Edit or Delete tasks from your list 
+- Hide completed tasks to focus on what's important
 - Choose between light and dark mode
 - Maintain the selected theme after refreshing the browser
-- View detailed information about particular country in another page
-- Filter countries by their name and region
 - The app is PWA which means you can install it in your device and use it offline
+- The app is a SEO friendly so when you share it you will see the right data with a good-looking icon
