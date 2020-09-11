@@ -99,6 +99,7 @@ const TaskList = ({tasks, setTasks}) => {
       <ul className='TaskList__list'>
         {tasks.length ?
           tasks.filter(task => !hideCompletedTasksFlag || !task.done)
+               .reverse()
                .map(task =>
                  <li className={generateTaskClasses(task.done)}
                      key={task.id}>

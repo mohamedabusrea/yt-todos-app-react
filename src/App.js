@@ -27,12 +27,12 @@ function App() {
 
 export default App;
 
-/*todo
+/*Todo
+ * Create the project
+ * Structure the app and create the components
+ * add light/dark theme
+ * show/hide completed tasks
+ * PWA
  * update readme file
- * update video's link in footer
- *PWA
- *show/hide completed tasks
- *add light/dark theme
- *Structure the app and create the components
- *Create the project
+ * update video's link in the footer
  */

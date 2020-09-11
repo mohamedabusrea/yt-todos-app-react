@@ -13,6 +13,7 @@
 
   &__list {
     display: flex;
+    flex-direction: column;
     list-style: none;
     margin-top: calc(var(--default-padding) * 2);
     flex: 1;
