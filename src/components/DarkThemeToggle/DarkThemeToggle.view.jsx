@@ -17,7 +17,9 @@ const DarkThemeToggle = ({darkModeFlag, setDarkModeFlag}) => {
   return (
     <div className={getElementClasses}
          onClick={toggleDarkMode}>
-      تفعيل الوضع الليلي
+      {darkModeFlag ?
+        <span>إيقاف الوضع الليلي</span> :
+        <span>تفعيل الوضع الليلي</span>}
     </div>
   );
 };
