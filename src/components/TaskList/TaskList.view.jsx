@@ -92,12 +92,20 @@ const TaskList = ({tasks, setTasks}) => {
 
   const generateLinkClasses = `TaskList__link ${hideCompletedTasksFlag ? 'TaskList__link--isActive' : ''}`;
 
+  const exitEditMode = (taskID, taskValue) => {
+    setEditModeID(-1);
+
+    if (!taskValue.trim()) {
+      onRemoveTask(taskID, false)
+    }
+  }
+
   return (
     <div className='TaskList'>
       {!!tasks.length && <p className={generateLinkClasses}
                           onClick={toggleCompletedTasksFlag}>
         {hideCompletedTasksFlag ?
-          <span>إظهار المهام المكتملة</span>:
+          <span>إظهار المهام المكتملة</span> :
           <span>إخفاء المهام المكتملة</span>
         }
       </p>}
@@ -111,7 +119,7 @@ const TaskList = ({tasks, setTasks}) => {
                    {task.done}
                    <div className='TaskList__checkbox'
                         onClick={() => onCheckTask(task.id)}>
-                     <img className='TaskList__checkboxImg' src={checkmarkIcon} alt="checkmark"/>
+                     <img className='TaskList__checkboxImg' src={checkmarkIcon} alt="checkmark" />
                    </div>
                    <div className='TaskList__valueContent'>
                      {shouldEditTask(task.id) ?
@@ -120,8 +128,8 @@ const TaskList = ({tasks, setTasks}) => {
                               value={task.value}
                               onChange={event => onUpdateTask(event, task.id)}
                               autoFocus={true}
-                              onBlur={() => setEditModeID(-1)}
-                              onKeyDown={event => onKeyDown(event, task.id)}/> :
+                              onBlur={() => exitEditMode(task.id, task.value)}
+                              onKeyDown={event => onKeyDown(event, task.id)} /> :
                        <p className='TaskList__value'
                           onClick={() => setEditModeID(task.id)}>{
                          task.value}
@@ -130,11 +138,11 @@ const TaskList = ({tasks, setTasks}) => {
                      {!shouldEditTask(task.id) && <img src={basketIcon}
                                                        className='TaskList__deleteIcon'
                                                        alt="basket-icon"
-                                                       onClick={() => onRemoveTask(task.id, true)}/>}
+                                                       onClick={() => onRemoveTask(task.id, true)} />}
                    </div>
                  </li>)
           :
-          <EmptyList/>}
+          <EmptyList />}
       </ul>
     </div>
   );
