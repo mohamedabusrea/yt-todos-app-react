@@ -5,10 +5,10 @@ import './EmptyList.style.scss'
 
 const EmptyList = () => {
   return (
-    <div className='EmptyList'>
+    <li className='EmptyList'>
       <img className='EmptyList__img' src={emptyImg} alt="list is empty"/>
       <p>قائمة المهام فارغة</p>
-    </div>
+    </li>
   );
 }
 

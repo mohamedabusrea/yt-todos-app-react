@@ -7,11 +7,11 @@ import './Header.style.scss';
 
 const Header = ({darkModeFlag, setDarkModeFlag}) => {
   return (
-    <div className='Header'>
+    <header className='Header'>
       <DarkThemeToggle darkModeFlag={darkModeFlag}
                        setDarkModeFlag={setDarkModeFlag}/>
       <SocialLinks/>
-    </div>
+    </header>
   );
 };
 

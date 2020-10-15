@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Logo from "./components/Logo/Logo.view";
 import Header from "./components/Header/Header.view";
 import Footer from "./components/Footer/Footer.view";
 import {fetchData} from "./helpers";
@@ -13,15 +12,14 @@ function App() {
   const getAppClasses = `App ${darkModeFlag ? 'App--isDark' : ''}`;
 
   return (
-    <div className={getAppClasses}>
+    <main className={getAppClasses}>
       <Header darkModeFlag={darkModeFlag}
               setDarkModeFlag={setDarkModeFlag}/>
       <div className="App__wrapper">
-        <Logo/>
         <Tasks/>
         <Footer/>
       </div>
-    </div>
+    </main>
   );
 }
 

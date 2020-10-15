@@ -39,18 +39,25 @@ const TaskSearchBar = ({setTasks}) => {
   }
 
   return (
-    <div className='TaskSearchBar'>
-      <input className='TaskSearchBar__input'
-             value={inputValue}
-             type="text"
-             placeholder='قم بإضافة مهمه...'
-             onChange={updateInputValue}
-             onKeyDown={onKeyDown}/>
-      <button className='TaskSearchBar__button'
-              onClick={addNewTask}>
-        إضافة
-      </button>
-    </div>);
+    <form className="TaskSearchBar">
+      <label for="search-input"
+             className="TaskSearchBar__label">
+        قائمة المهام
+      </label>
+      <div className="TaskSearchBar__searchContent">
+        <input id="search-input"
+               className="TaskSearchBar__input"
+               value={inputValue}
+               type="text"
+               placeholder="قم بإضافة مهمه..."
+               onChange={updateInputValue}
+               onKeyDown={onKeyDown} />
+        <button className="TaskSearchBar__button"
+                onClick={addNewTask}>
+          إضافة
+        </button>
+      </div>
+    </form>);
 };
 
 TaskSearchBar.propTypes = {

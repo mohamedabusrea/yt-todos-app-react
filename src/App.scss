@@ -13,13 +13,14 @@
   --timing-animation: .2s;
   --color-black: #3e3e3e;
   --color-red: #ff2d2d;
-  --color-blue: #0E93E5;
+  --color-blue: #042a41;
   --color-white: white;
-  --color-gray: #c1c1c1;
+  --color-gray: #525252;
   --color-light-gray: #f1f3f5;
   --color-text: var(--color-black);
   --color-bg: var(--color-light-gray);
   --color-input: var(--color-white);
+  --color-link: var(--color-blue);
   --color-task-hover: #ececec;
   --color-bg-dark-theme: #222222;
   --color-input-dark-theme: #333333;
@@ -41,6 +42,8 @@
     --color-input: var(--color-input-dark-theme);
     --color-text: var(--color-text-dark-theme);
     --color-task-hover: var(--color-input-dark-theme);
+    --color-link: #3cb6ff;
+    --color-gray: #adadad;
   }
 
   &__wrapper {

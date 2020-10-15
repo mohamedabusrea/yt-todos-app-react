@@ -1,10 +1,23 @@
 .TaskSearchBar {
   display: flex;
-  box-shadow: 0 .6rem .8rem rgba(85, 102, 119, .03), 0 .1rem .1rem rgba(85, 102, 119, .4);
-  height: 6.4rem;
-  cursor: text;
-  border-radius: .3rem;
-  overflow: hidden;
+  flex-direction: column;
+
+  &__label {
+    font-size: var(--font-size-xLarge);
+    font-weight: var(--font-weight-light);
+    text-align: center;
+    margin-top: calc(var(--default-padding) * 2);
+    margin-bottom: calc(var(--default-padding) * 2);
+  }
+
+  &__searchContent {
+    display: flex;
+    box-shadow: 0 .6rem .8rem rgba(85, 102, 119, .03), 0 .1rem .1rem rgba(85, 102, 119, .4);
+    height: 6.4rem;
+    cursor: text;
+    border-radius: .3rem;
+    overflow: hidden;
+  }
 
   &__input {
     padding: var(--default-padding);
