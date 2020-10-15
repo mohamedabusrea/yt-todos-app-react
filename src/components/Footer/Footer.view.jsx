@@ -5,11 +5,14 @@ import './Footer.style.scss';
 const Footer = () => {
   return (
     <footer className='Footer'>
-      <span>يمكنك مشاهدة خطوات بناء هذا المشروع في </span>
-      {/*<a className='Footer__link'*/}
-      {/*   href="#"*/}
-      {/*   target='_blank'*/}
-      {/*   rel="noopener noreferrer">هذا الفيديو</a>*/}
+      <p>
+        <span>يمكنك الوصول الي ملفات المشروع علي </span>
+        <a href="https://github.com/mohamedabusrea/yt-todos-app-react"
+           target="_blank"
+           rel="noopener noreferrer">
+          هذا الرابط
+        </a>
+      </p>
     </footer>
   );
 }

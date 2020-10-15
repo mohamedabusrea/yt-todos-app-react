@@ -30,8 +30,8 @@ export default App;
 /*Todo
  * Create the project
  * Structure the app and create the components
- * add light/dark theme
  * show/hide completed tasks
+ * add light/dark theme
  * PWA
  * update readme file
  * update video's link in the footer
