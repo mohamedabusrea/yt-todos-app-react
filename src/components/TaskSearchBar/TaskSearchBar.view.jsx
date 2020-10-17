@@ -39,7 +39,7 @@ const TaskSearchBar = ({setTasks}) => {
   }
 
   return (
-    <form className="TaskSearchBar">
+    <div className="TaskSearchBar">
       <label for="search-input"
              className="TaskSearchBar__label">
         قائمة المهام
@@ -57,7 +57,7 @@ const TaskSearchBar = ({setTasks}) => {
           إضافة
         </button>
       </div>
-    </form>);
+    </div>);
 };
 
 TaskSearchBar.propTypes = {
